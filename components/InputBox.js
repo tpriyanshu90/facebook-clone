@@ -8,11 +8,13 @@ import Image from "next/image";
 import { useRef, useState } from "react";
 import { db, storage } from "../firebase";
 import firebase from "firebase";
+
 function InputBox() {
   const [session] = useSession();
   const inputRef = useRef(null);
   const filePickerRef = useRef(null);
   const [imageToPost, setImageToPost] = useState(null);
+
   const sendPost = (e) => {
     e.preventDefault();
     if (!inputRef.current.value) return;
@@ -23,7 +25,7 @@ function InputBox() {
         name: session.user.name,
         email: session.user.email,
         image: session.user.image,
-        timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+        timestamp: firebase.firestore.FieldValue.serverTimestamp()
       })
       .then((doc) => {
         if (imageToPost) {
@@ -77,8 +79,8 @@ function InputBox() {
             className="outline-none p-2 rounded-full h-12 bg-gray-100 flex-grow px-5 focus:outline-none"
             placeholder={`What's on your mind, ${session.user.name}?`}
           />
-          <button hidden onClick={sendPost}>
-            Submit
+          <button className="pl-2" onClick={sendPost}>
+            Post
           </button>
         </form>
         {imageToPost && (
