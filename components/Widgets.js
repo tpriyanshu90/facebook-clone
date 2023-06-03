@@ -3,7 +3,7 @@ import { DotsHorizontalIcon, VideoCameraIcon } from "@heroicons/react/solid";
 import Contact from "./Contact";
 const contacts = [
   {
-    src: "https://links.papareact.com/f0p",
+    src: "https://links.papareact.com/d0c",
     name: "Jeff Bezos",
   },
   {
